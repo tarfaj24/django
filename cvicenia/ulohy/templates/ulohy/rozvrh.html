@@ -1,0 +1,20 @@
+<h1>{{den}}</h1>
+<table border="1">
+    <tr>
+        <th>Hodina</th>
+        <th>Predmet</th>
+    </tr>
+    {% for hodina in hodiny %}
+    {%if hodina.predmet == "Programovanie"%}
+    <tr>
+        <td>{{hodina.cislo}}</td>
+        <th>{{hodina.predmet}}</th>
+    </tr>
+    {% else %}
+    <tr>
+        <td>{{hodina.cislo}}</td>
+        <td>{{hodina.predmet}}</td>
+    </tr>
+        {%endif%}
+    {%endfor%}
+</table>
