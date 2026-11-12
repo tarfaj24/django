@@ -1,0 +1,17 @@
+<h1>Moje meno: {{meno}}</h1>
+<h1>Trieda: {{trieda}}</h1>
+{% if vek > 17%}
+    <h1>Vek: {{vek}}</h1>
+    <p>Som plnoletý</p>
+{% else %}
+    <h1>Vek: {{vek}}</h1>
+    <p>Nie som plnoletý</p>
+{% endif %}
+<h1>Moje oblubene predmety: </h1>
+<ul>
+    {% for predmet in oblubene_predmety %}
+    <li>{{predmet}}</li>
+    {% empty %}
+    <li>Žiadne oblubene predmet</li>
+    {%endfor%}
+</ul>
