@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulacka</title>
+</head>
+<body>
+    <h1>Zadaj cisla</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="a" required>
+        <select name="operator" id="operator">
+            <option value="obvod">obvod</option>
+            <option value="obsah">obsah</option>
+        </select>
+        <input type="text" name="b" required>
+        <button>Vypocitat</button>
+    </form>
+    {% if vysledok != None %}
+        <p>Vysledok: {{vysledok}}</p>
+    {% endif %}
+    
+</body>
+</html>
