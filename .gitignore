@@ -1,1 +1,5 @@
 /venv
+__pycache__/
+/cvicenia/domace/__pycache__
+/cvicenia/config/__pycache__
+/cvicenia/ulohy/__pycache__

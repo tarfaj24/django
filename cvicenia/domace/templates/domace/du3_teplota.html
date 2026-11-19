@@ -1,0 +1,14 @@
+<form method="POST">
+    {% csrf_token %}
+    <label for="teplota">Zadaj teplotu:</label>
+    <input type="text" name="teplota" id="teplota" required>
+    <label for="smer_prevodu">Zadaj smer prevodu:</label>
+    <select name="smer" id="smer_prevodu">
+        <option value="F_to_C">°F → °C</option>
+        <option value="C_to_F">°C → °F</option>
+    </select>
+    <button>Prepocitaj teplotu</button>
+    {% if vysledok != None %}
+    <h1>Vysledok: {{vysledok}}</h1>
+    {% endif %}
+</form>
