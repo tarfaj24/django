@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>produkty</title>
+</head>
+<body>
+    <table border = "1">
+    <form method ="GET">
+        <label>Max. cena: <input type="text" name="max_cena"></label>
+        <button>Filtrovať</button>
+    </form>
+    <tr>
+        <th>Nazov</th>
+        <th>Cena</th>
+    </tr>
+    
+    {% if error != None %}
+        <p>{{error}}</p>
+    {% endif %}
+    {% for riadok in obchodne_data %}
+        {% if max_cena == None %}
+            <tr>
+                <td>{{riadok.nazov}}</td>
+                {% if riadok.cena < 5 %}
+                    <td><strong>{{riadok.cena|floatformat:2}}€</strong></td>
+                {% else %}
+                    <td>{{riadok.cena|floatformat:2}}€</td>
+                {%endif%}
+            </tr>
+        {% elif riadok.cena <= max_cena %}
+            <tr>
+                <td>{{riadok.nazov}}</td>
+                {% if riadok.cena < 5 %}
+                    <td><strong>{{riadok.cena|floatformat:2}}€</strong></td>
+                {% else %}
+                    <td>{{riadok.cena|floatformat:2}}€</td>
+                {%endif%}
+            </tr>
+        {% endif %}
+    {% endfor %}
+</table>
+</body>
+</html>

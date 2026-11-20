@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>body</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="body">Body:</label>
+        <input type="text" name="body" required>
+        <label for="maximum">Maximum:</label>
+        <input type="text" name="maximum" required>
+        <button>Vypocitat body</button>
+        {% if vysledok != None %}
+            {% if error != None %}
+                <p>{{vysledok}}</p>
+            {% else %}
+                {% if vysledok >= 90 %}
+                    <p>Percentá: {{vysledok}}</p>
+                    <p>Známka: 1</p>
+                {% elif vysledok >= 75 %}
+                    <p>Percentá: {{vysledok}}</p>
+                    <p>Známka: 2</p>
+                {% elif vysledok >= 50 %}
+                    <p>Percentá: {{vysledok}}</p>
+                    <p>Známka: 3</p>
+                {% elif vysledok >= 30 %}
+                    <p>Percentá: {{vysledok}}</p>
+                    <p>Známka: 4</p>
+                {% else %}
+                    <p>Percentá: {{vysledok}}</p>
+                    <p>Známka: 5</p>
+                {% endif %}
+            {% endif %}
+        {% endif %}
+    </form>
+</body>
+</html>
