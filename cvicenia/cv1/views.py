@@ -30,7 +30,7 @@ def cv1_body(request):
             body = float(request.POST["body"])
             maximum = float(request.POST["maximum"])
             vysledok = round((body / maximum) * 100, 2)
-            return render(request, "cv1/cv1_body.html", {"vysledok": vysledok, "error": error})
+            return render(request, "cv1/cv1_body.html", {"vysledok": vysledok, "body": body,"maximum": maximum, "error": error})
         except ValueError:
             return render(request, "cv1/cv1_body.html", {"vysledok": "Musi byť v tvare čísla!", "error": True})
     return render(request, "cv1/cv1_body.html", {"vysledok": vysledok, "error": error})
